@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <!-- Include eel.js - note this file doesn't exist in the 'web' directory -->
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript">
+      function restart() {
+        eel.restart()
+      }
+
+      var interval = window.setInterval(update_console, 12000)
+
+      async function update_console() {
+        let log = await eel.get_console_log()()
+        document.getElementById('console').value = log
+      }
+    </script>
+  </head>
+
+  <body>
+    Hello, World!
+
+    <button onclick="restart()">Restart</button>
+    <textarea disabled id="console"></textarea>
+
+  </body>
+</html>
